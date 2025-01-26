@@ -1,15 +1,14 @@
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
-
 import models.Contacto;
-import utils.ContactoComparador;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        runHashSet();
+        /*runHashSet();
         runlinkesHashSet();
         runTreeSet();
-        runTreeSetComparador();
+        runTreeSetComparador();*/
+        runEjercicioContacto();
     }
 
     public static void runHashSet() {
@@ -53,6 +52,15 @@ public class App {
     }
 
     private static void runEjercicioContacto(){
-        Set<Contacto> agenda= new TreeSet<>(new ContactoComparador());
+        Set<Contacto> agenda = new HashSet<>();
+
+        agenda.add(new Contacto("Juan", "Pérez", "123456"));
+        agenda.add(new Contacto("Ana", "Pérez", "987654"));
+        agenda.add(new Contacto("Luis", "García", "456789"));
+        agenda.add(new Contacto("Juan", "Perez", "2335475"));
+
+        for (Contacto contacto : agenda) {
+            System.out.println(contacto);
+        }
     }
 }
