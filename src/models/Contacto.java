@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Objects;
-
 public class Contacto {
     private String nombre;
     private String apellido;
@@ -46,14 +44,19 @@ public class Contacto {
     }
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Contacto contacto = (Contacto) obj;
-        return Objects.equals(apellido, contacto.apellido) &&
-        Objects.equals(nombre, contacto.nombre);
+        if (this == obj)//referencia de memoria
+        return true;
+        if (obj == null)// obj es null
+        return false;
+        if(getClass() != obj.getClass())
+        return false;
+        Contacto other = (Contacto) obj;
+        return nombre.equals(other.nombre)
+        && apellido.equals(other.apellido);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(apellido);
+        //Por simplicidad, combinamos los hash de nombre y apellido
+        return nombre.hashCode() + apellido.hashCode();
     }
 }
